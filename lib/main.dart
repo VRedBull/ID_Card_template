@@ -8,7 +8,17 @@ void main() {
   ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+int numVar = 1;
+void numVarIn() {
+  numVar = numVar + 1;
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +83,7 @@ class MyApp extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Text(
-              '10',
+              '$numVar',
               style: TextStyle(
                   fontSize: 30.0,
                   color: Colors.amberAccent,
@@ -98,6 +108,19 @@ class MyApp extends StatelessWidget {
                     fontSize: 18, letterSpacing: 1, color: Colors.grey[400]),
               )
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(280, 100, 10, 0),
+            child: FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  numVarIn();
+                });
+                print('pressed');
+              },
+              child: Icon(Icons.add),
+              backgroundColor: Colors.amber,
+            ),
           )
         ],
       ),
