@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-int numVar = 1;
+int numVar = 0;
 void numVarIn() {
   numVar = numVar + 1;
 }
@@ -118,8 +118,14 @@ class _MyAppState extends State<MyApp> {
                 });
                 print('pressed');
               },
-              child: Icon(Icons.add),
-              backgroundColor: Colors.amber,
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+              backgroundColor: Colors.grey[700],
+              elevation: 20,
+              focusElevation: 30,
+              highlightElevation: 30,
             ),
           )
         ],
